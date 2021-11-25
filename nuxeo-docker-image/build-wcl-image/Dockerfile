@@ -30,6 +30,7 @@ RUN if [ $NUXEO_VERSION != "master" ]; then echo "$NUXEO_MD5 /tmp/nuxeo-distribu
 
 COPY nuxeo-docker-image/build-wcl-image/docker-template $NUXEO_HOME/templates/docker
 COPY nuxeo-docker-image/build-wcl-image/nuxeo.conf /etc/nuxeo/nuxeo.conf.template
+COPY nuxeo-docker-image/build-wcl-image/templates/drive $NUXEO_HOME/templates/drive
 ENV NUXEO_CONF /etc/nuxeo/nuxeo.conf
 
 # Protecting writeable directories to support arbitrary User IDs for OpenShift
@@ -55,6 +56,12 @@ COPY nuxeo-docker-image/build-wcl-image/docker-entrypoint.sh /
 RUN chmod +x /docker-entrypoint.sh
 
 COPY --chown=1000:0 nuxeo/addons/nuxeo-web-ui/target/nuxeo-web-ui-10.10-HF55-SNAPSHOT.jar $NUXEO_HOME/nxserver/bundles
+COPY --chown=1000:0 nuxeo/addons/nuxeo-drive-server/nuxeo-drive-core/target/nuxeo-drive-core-10.10-HF55-SNAPSHOT.jar $NUXEO_HOME/nxserver/bundles
+COPY --chown=1000:0 nuxeo/addons/nuxeo-drive-server/nuxeo-drive-elasticsearch/target/nuxeo-drive-elasticsearch-10.10-HF55-SNAPSHOT.jar $NUXEO_HOME/nxserver/bundles
+COPY --chown=1000:0 nuxeo/addons/nuxeo-drive-server/nuxeo-drive-mongodb/target/nuxeo-drive-mongodb-10.10-HF55-SNAPSHOT.jar $NUXEO_HOME/nxserver/bundles
+COPY --chown=1000:0 nuxeo/addons/nuxeo-drive-server/nuxeo-drive-operations/target/nuxeo-drive-operations-10.10-HF55-SNAPSHOT.jar $NUXEO_HOME/nxserver/bundles
+COPY --chown=1000:0 nuxeo/addons/nuxeo-drive-server/nuxeo-drive-web-ui/target/nuxeo-drive-web-ui-10.10-HF55-SNAPSHOT.jar $NUXEO_HOME/nxserver/bundles
+COPY --chown=1000:0 nuxeo/addons/nuxeo-drive-server/nuxeo-drive-rest-api/target/nuxeo-drive-rest-api-10.10-HF55-SNAPSHOT.jar $NUXEO_HOME/nxserver/bundles
 
 USER 1000 
 # RUN cat /etc/nuxeo/nuxeo.conf.template > $NUXEO_CONF

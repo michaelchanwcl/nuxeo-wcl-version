@@ -17,7 +17,7 @@ services:
       - NUXEO_ES_INDEX_NAME=nuxeo
       - NUXEO_ES_REPLICAS=0
       - NUXEO_ES_SHARDS=1
-      - NUXEO_TEMPLATES=sdk
+      - NUXEO_TEMPLATES=sdk,drive
       - NUXEO_URL=http://nuxeo.wclsolution.com/nuxeo
       - NUXEO_LOG=/var/log/nuxeo
     networks:

@@ -20,7 +20,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     wget \
     unzip \
     procps \
+    ccextractor \
  && rm -rf /var/lib/apt/lists/*
+
+COPY nuxeo-docker-image/build-os/config/policy.xml /etc/ImageMagick-6/policy.xml
 
 # Remove setuid/setgid binaries from images for security
 RUN find / -perm 6000 -type f -exec chmod a-s {} \; || true

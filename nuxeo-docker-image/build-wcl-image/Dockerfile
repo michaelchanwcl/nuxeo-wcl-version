@@ -56,12 +56,27 @@ COPY nuxeo-docker-image/build-wcl-image/docker-entrypoint.sh /
 RUN chmod +x /docker-entrypoint.sh
 
 COPY --chown=1000:0 nuxeo/addons/nuxeo-web-ui/target/nuxeo-web-ui-10.10-HF55-SNAPSHOT.jar $NUXEO_HOME/nxserver/bundles
+# Nuxeo Drive Server
 COPY --chown=1000:0 nuxeo/addons/nuxeo-drive-server/nuxeo-drive-core/target/nuxeo-drive-core-10.10-HF55-SNAPSHOT.jar $NUXEO_HOME/nxserver/bundles
 COPY --chown=1000:0 nuxeo/addons/nuxeo-drive-server/nuxeo-drive-elasticsearch/target/nuxeo-drive-elasticsearch-10.10-HF55-SNAPSHOT.jar $NUXEO_HOME/nxserver/bundles
 COPY --chown=1000:0 nuxeo/addons/nuxeo-drive-server/nuxeo-drive-mongodb/target/nuxeo-drive-mongodb-10.10-HF55-SNAPSHOT.jar $NUXEO_HOME/nxserver/bundles
 COPY --chown=1000:0 nuxeo/addons/nuxeo-drive-server/nuxeo-drive-operations/target/nuxeo-drive-operations-10.10-HF55-SNAPSHOT.jar $NUXEO_HOME/nxserver/bundles
 COPY --chown=1000:0 nuxeo/addons/nuxeo-drive-server/nuxeo-drive-web-ui/target/nuxeo-drive-web-ui-10.10-HF55-SNAPSHOT.jar $NUXEO_HOME/nxserver/bundles
 COPY --chown=1000:0 nuxeo/addons/nuxeo-drive-server/nuxeo-drive-rest-api/target/nuxeo-drive-rest-api-10.10-HF55-SNAPSHOT.jar $NUXEO_HOME/nxserver/bundles
+# DAM
+COPY --chown=1000:0 nuxeo/addons/nuxeo-dam/nuxeo-dam/target/nuxeo-dam-10.10-HF55-SNAPSHOT.jar $NUXEO_HOME/nxserver/bundles
+COPY --chown=1000:0 nuxeo/addons/nuxeo-platform-audio/nuxeo-platform-audio-core/target/nuxeo-platform-audio-core-10.10-HF55-SNAPSHOT.jar $NUXEO_HOME/nxserver/bundles
+COPY --chown=1000:0 nuxeo/nuxeo-features/nuxeo-platform-imaging/nuxeo-platform-imaging-core/target/nuxeo-platform-imaging-core-10.10-HF55-SNAPSHOT.jar $NUXEO_HOME/nxserver/bundles
+COPY --chown=1000:0 nuxeo/nuxeo-features/nuxeo-platform-imaging/nuxeo-platform-imaging-convert/target/nuxeo-platform-imaging-convert-10.10-HF55-SNAPSHOT.jar $NUXEO_HOME/nxserver/bundles
+COPY --chown=1000:0 nuxeo/nuxeo-features/nuxeo-platform-imaging/nuxeo-platform-imaging-api/target/nuxeo-platform-imaging-api-10.10-HF55-SNAPSHOT.jar $NUXEO_HOME/nxserver/bundles
+COPY --chown=1000:0 nuxeo/addons/nuxeo-platform-video/nuxeo-platform-video-api/target/nuxeo-platform-video-api-10.10-HF55-SNAPSHOT.jar $NUXEO_HOME/nxserver/bundles
+COPY --chown=1000:0 nuxeo/addons/nuxeo-platform-video/nuxeo-platform-video-convert/target/nuxeo-platform-video-convert-10.10-HF55-SNAPSHOT.jar $NUXEO_HOME/nxserver/bundles
+COPY --chown=1000:0 nuxeo/addons/nuxeo-platform-video/nuxeo-platform-video-core/target/nuxeo-platform-video-core-10.10-HF55-SNAPSHOT.jar $NUXEO_HOME/nxserver/bundles
+COPY --chown=1000:0 nuxeo/addons/nuxeo-dam/nuxeo-dam-web-ui/target/nuxeo-dam-web-ui-10.10-HF55-SNAPSHOT.jar $NUXEO_HOME/nxserver/bundles
+COPY --chown=1000:0 nuxeo-docker-image/build-wcl-image/lib/jaudiotagger-2.0.3.jar $NUXEO_HOME/nxserver/lib
+#COPY --chown=1000:0 $NUXEO_HOME/nxserver/bundles
+
+# COPY --chown=1000:0 $NUXEO_HOME/nxserver/bundles
 
 USER 1000 
 # RUN cat /etc/nuxeo/nuxeo.conf.template > $NUXEO_CONF

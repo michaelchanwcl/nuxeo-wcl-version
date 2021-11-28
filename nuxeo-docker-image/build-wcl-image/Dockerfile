@@ -28,9 +28,9 @@ RUN if [ $NUXEO_VERSION != "master" ]; then echo "$NUXEO_MD5 /tmp/nuxeo-distribu
     && chmod g+rwX $NUXEO_HOME/bin/*ctl $NUXEO_HOME/bin/*.sh \
     && chown -R 1000:0 $NUXEO_HOME && chmod -R g+rwX $NUXEO_HOME
 
+# Add Template
 COPY nuxeo-docker-image/build-wcl-image/docker-template $NUXEO_HOME/templates/docker
 COPY nuxeo-docker-image/build-wcl-image/nuxeo.conf /etc/nuxeo/nuxeo.conf.template
-COPY nuxeo-docker-image/build-wcl-image/templates/drive $NUXEO_HOME/templates/drive
 ENV NUXEO_CONF /etc/nuxeo/nuxeo.conf
 
 # Protecting writeable directories to support arbitrary User IDs for OpenShift
@@ -55,6 +55,10 @@ RUN chmod +x /wait-for.sh
 COPY nuxeo-docker-image/build-wcl-image/docker-entrypoint.sh /
 RUN chmod +x /docker-entrypoint.sh
 
+# MySQL JDBC Driver update
+RUN rm $NUXEO_HOME/templates/mysql/lib/mysql-connector-java-8.0.13.jar
+COPY --chown=1000:0 nuxeo-docker-image/build-wcl-image/lib/mysql-connector-java-8.0.27.jar $NUXEO_HOME/templates/mysql/lib
+# WEB UI
 COPY --chown=1000:0 nuxeo/addons/nuxeo-web-ui/target/nuxeo-web-ui-10.10-HF55-SNAPSHOT.jar $NUXEO_HOME/nxserver/bundles
 # Nuxeo Drive Server
 COPY --chown=1000:0 nuxeo/addons/nuxeo-drive-server/nuxeo-drive-core/target/nuxeo-drive-core-10.10-HF55-SNAPSHOT.jar $NUXEO_HOME/nxserver/bundles
@@ -63,6 +67,7 @@ COPY --chown=1000:0 nuxeo/addons/nuxeo-drive-server/nuxeo-drive-mongodb/target/n
 COPY --chown=1000:0 nuxeo/addons/nuxeo-drive-server/nuxeo-drive-operations/target/nuxeo-drive-operations-10.10-HF55-SNAPSHOT.jar $NUXEO_HOME/nxserver/bundles
 COPY --chown=1000:0 nuxeo/addons/nuxeo-drive-server/nuxeo-drive-web-ui/target/nuxeo-drive-web-ui-10.10-HF55-SNAPSHOT.jar $NUXEO_HOME/nxserver/bundles
 COPY --chown=1000:0 nuxeo/addons/nuxeo-drive-server/nuxeo-drive-rest-api/target/nuxeo-drive-rest-api-10.10-HF55-SNAPSHOT.jar $NUXEO_HOME/nxserver/bundles
+COPY --chown=1000:0 nuxeo-docker-image/build-wcl-image/templates/drive $NUXEO_HOME/templates/drive
 # DAM
 COPY --chown=1000:0 nuxeo/addons/nuxeo-dam/nuxeo-dam/target/nuxeo-dam-10.10-HF55-SNAPSHOT.jar $NUXEO_HOME/nxserver/bundles
 COPY --chown=1000:0 nuxeo/addons/nuxeo-platform-audio/nuxeo-platform-audio-core/target/nuxeo-platform-audio-core-10.10-HF55-SNAPSHOT.jar $NUXEO_HOME/nxserver/bundles
@@ -74,6 +79,26 @@ COPY --chown=1000:0 nuxeo/addons/nuxeo-platform-video/nuxeo-platform-video-conve
 COPY --chown=1000:0 nuxeo/addons/nuxeo-platform-video/nuxeo-platform-video-core/target/nuxeo-platform-video-core-10.10-HF55-SNAPSHOT.jar $NUXEO_HOME/nxserver/bundles
 COPY --chown=1000:0 nuxeo/addons/nuxeo-dam/nuxeo-dam-web-ui/target/nuxeo-dam-web-ui-10.10-HF55-SNAPSHOT.jar $NUXEO_HOME/nxserver/bundles
 COPY --chown=1000:0 nuxeo-docker-image/build-wcl-image/lib/jaudiotagger-2.0.3.jar $NUXEO_HOME/nxserver/lib
+# EasyShare
+COPY --chown=1000:0 nuxeo/addons/nuxeo-easyshare/nuxeo-easyshare-core/target/nuxeo-easyshare-core-10.10-HF55-SNAPSHOT.jar $NUXEO_HOME/nxserver/bundles
+COPY --chown=1000:0 nuxeo-docker-image/build-wcl-image/lib/nuxeo-apt-extensions-1.0.jar $NUXEO_HOME/nxserver/bundles
+COPY --chown=1000:0 nuxeo-docker-image/build-wcl-image/lib/nuxeo-webengine-apt-1.2.jar $NUXEO_HOME/nxserver/bundles
+COPY --chown=1000:0 nuxeo/addons/nuxeo-easyshare/nuxeo-easyshare-web-ui/target/nuxeo-easyshare-web-ui-10.10-HF55-SNAPSHOT.jar $NUXEO_HOME/nxserver/bundles
+# Retention
+COPY --chown=1000:0 nuxeo/nuxeo-services/nuxeo-platform-actions-core/target/nuxeo-platform-actions-core-10.10-HF55-SNAPSHOT.jar $NUXEO_HOME/nxserver/bundles
+COPY --chown=1000:0 nuxeo/addons/nuxeo-retention/nuxeo-retention-core/target/nuxeo-retention-core-10.10-HF55-SNAPSHOT.jar $NUXEO_HOME/nxserver/bundles
+COPY --chown=1000:0 nuxeo/addons/nuxeo-retention/nuxeo-retention-web-ui/target/nuxeo-retention-web-ui-10.10-HF55-SNAPSHOT.jar $NUXEO_HOME/nxserver/bundles
+COPY --chown=1000:0 nuxeo-docker-image/build-wcl-image/templates/retention $NUXEO_HOME/templates/retention
+# WOPI
+COPY --chown=1000:0 nuxeo/addons/nuxeo-wopi/nuxeo-wopi/target/nuxeo-wopi-10.10-HF55-SNAPSHOT.jar $NUXEO_HOME/nxserver/bundles
+COPY --chown=1000:0 nuxeo/addons/nuxeo-wopi/nuxeo-wopi-web-ui/target/nuxeo-wopi-web-ui-10.10-HF55-SNAPSHOT.jar $NUXEO_HOME/nxserver/bundlesre
+COPY --chown=1000:0 nuxeo-docker-image/build-wcl-image/lib/jackson-dataformat-xml-2.9.10.jar $NUXEO_HOME/nxserver/lib
+COPY --chown=1000:0 nuxeo-docker-image/build-wcl-image/lib/jackson-jaxrs-base-2.9.10.jar $NUXEO_HOME/nxserver/lib
+COPY --chown=1000:0 nuxeo-docker-image/build-wcl-image/lib/jackson-jaxrs-json-provider-2.9.10.jar $NUXEO_HOME/nxserver/lib
+COPY --chown=1000:0 nuxeo-docker-image/build-wcl-image/lib/jackson-module-jaxb-annotations-2.9.10.jar $NUXEO_HOME/nxserver/lib
+COPY --chown=1000:0 nuxeo-docker-image/build-wcl-image/lib/jutf7-1.0.0.jar $NUXEO_HOME/nxserver/bundles
+
+#COPY --chown=1000:0 $NUXEO_HOME/nxserver/bundles
 #COPY --chown=1000:0 $NUXEO_HOME/nxserver/bundles
 
 # COPY --chown=1000:0 $NUXEO_HOME/nxserver/bundles

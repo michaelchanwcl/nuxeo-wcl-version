@@ -7118,8 +7118,8 @@
       </snapshots>
     </repository>
     <repository>
-      <id>public-en</id>
-      <url>https://maven-en.nuxeo.org/nexus/content/groups/public</url>
+      <id>public-us</id>
+      <url>https://maven-us.nuxeo.org/nexus/content/groups/public</url>
       <releases>
         <enabled>true</enabled>
       </releases>
@@ -7165,7 +7165,7 @@
     </pluginRepository>
     <pluginRepository>
       <id>public-us</id>
-      <url>https://maven-en.nuxeo.org/nexus/content/groups/public-snapshot</url>
+      <url>https://maven-us.nuxeo.org/nexus/content/groups/public-snapshot</url>
       <name>Nuxeo virtual snapshot repository</name>
       <releases>
         <enabled>true</enabled>

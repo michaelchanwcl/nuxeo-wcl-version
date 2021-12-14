@@ -22,6 +22,7 @@ services:
       - NUXEO_LOG=/var/log/nuxeo
     networks:
       - wcl-network
+    restart: always
 
   mailhog:
     image: mailhog/mailhog
@@ -31,6 +32,7 @@ services:
       - 8025:8025
     networks:
       - wcl-network
+    restart: always
 
   mysql:
     image: mysql:8.0
@@ -48,8 +50,10 @@ services:
     volumes:
       - mysql:/var/lib/mysql
       - mysql_config:/etc/mysql
+      - ${PWD}/mysql/init:/docker-entrypoint-initdb.d
     networks:
       - wcl-network
+    restart: always
 
   elasticsearch:
     image: elasticsearch:6.5.4
@@ -65,11 +69,13 @@ services:
       - elastic:/usr/share/elasticsearch/data
     networks:
       - wcl-network
+    restart: always
 
   multitool:
     image: praqma/network-multitool
     networks:
       - wcl-network
+    restart: always
 
 volumes:
   mysql:

@@ -1,0 +1,110 @@
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 https://maven.apache.org/xsd/settings-1.0.0.xsd">
+  <mirrors>
+    <mirror>
+      <id>local-mirror-central</id>
+      <name>Local Mirror of Central Repository</name>
+      <url>http://132.148.160.61:40279/repository/maven-central</url>
+      <mirrorOf>central</mirrorOf>
+    </mirror>
+    <mirror>
+      <id>local-mirror-rso</id>
+      <name>Local Mirror of Central Repository</name>
+      <url>http://132.148.160.61:40279/repository/maven-central</url>
+      <mirrorOf>RSO</mirrorOf>
+    </mirror>
+    <mirror>
+      <id>local-mirror-maven-sonatype-nexus-snapshots</id>
+      <name>Local Mirror of sonatype-nexus-snapshots Repository</name>
+      <url>http://132.148.160.61:40279/repository/maven-sonatype-nexus-snapshots</url>
+      <mirrorOf>sonatype-nexus-snapshots</mirrorOf>
+    </mirror>
+    <mirror>
+      <id>local-mirror-apache.snapshots</id>
+      <name>Local Mirror of apache.snapshots Repository</name>
+      <url>http://132.148.160.61:40279/repository/maven-apache-snapshots</url>
+      <mirrorOf>apache.snapshots</mirrorOf>
+    </mirror>
+    <mirror>
+      <id>local-mirror-codehaus.snapshots</id>
+      <name>Local Mirror of codehaus.snapshots Repository</name>
+      <url>http://132.148.160.61:40279/repository/maven-codehaus-snapshots</url>
+      <mirrorOf>codehaus.snapshots</mirrorOf>
+    </mirror>
+    <mirror>
+      <id>local-mirror-repository.jboss.org</id>
+      <name>Local Mirror of repository.jboss.org Repository</name>
+      <url>http://132.148.160.61:40279/repository/maven-repository-jboss-org</url>
+      <mirrorOf>repository.jboss.org</mirrorOf>
+    </mirror>
+    <mirror>
+      <id>local-mirror-repo-jena</id>
+      <name>Local Mirror of repo-jena Repository</name>
+      <url>http://132.148.160.61:40279/repository/maven-repo-jena</url>
+      <mirrorOf>repo-jena</mirrorOf>
+    </mirror>
+    <mirror>
+      <id>local-mirror-jvnet-nexus-snapshots</id>
+      <name>Local Mirror of jvnet-nexus-snapshots Repository</name>
+      <url>http://132.148.160.61:40279/repository/maven-jvnet-nexus-snapshots</url>
+      <mirrorOf>jvnet-nexus-snapshots</mirrorOf>
+    </mirror>
+    <mirror>
+      <id>local-mirror-repo-jena-dev</id>
+      <name>Local Mirror of repo-jena-dev Repository</name>
+      <url>http://132.148.160.61:40279/repository/maven-repo-jena-dev</url>
+      <mirrorOf>repo-jena-dev</mirrorOf>
+    </mirror>   
+    <mirror>
+      <id>local-mirror-apache-snapshots</id>
+      <name>Local Mirror of apache-snapshots Repository</name>
+      <url>http://132.148.160.61:40279/repository/maven-apache-snapshots</url>
+      <mirrorOf>apache-snapshots</mirrorOf>
+    </mirror>   
+    <mirror>
+      <id>local-mirror-jboss</id>
+      <name>Local Mirror of jboss Repository</name>
+      <url>http://132.148.160.61:40279/repository/maven-repository-jboss-org</url>
+      <mirrorOf>jboss</mirrorOf>
+    </mirror>   
+    <mirror>
+      <id>local-mirror-apache.snapshots.https</id>
+      <name>Local Mirror of apache.snapshots.https Repository</name>
+      <url>http://132.148.160.61:40279/repository/maven-apache.snapshots.https</url>
+      <mirrorOf>apache.snapshots.https</mirrorOf>
+    </mirror>  
+    <mirror>
+      <id>local-mirror-public</id>
+      <name>Local Mirror of public Repository</name>
+      <url>http://132.148.160.61:40279/repository/maven-local-public/</url>
+      <mirrorOf>public</mirrorOf>
+    </mirror> 
+    <mirror>
+      <id>local-mirror-hotfix-releases</id>
+      <name>Local Mirror of hotfix-releases Repository</name>
+      <url>http://132.148.160.61:40279/repository/maven-local-hotfix-releases/</url>
+      <mirrorOf>hotfix-releases</mirrorOf>
+    </mirror> 
+    <!--   <mirror>
+      <id>local-mirror-hotfix-snapshots</id>
+      <name>Local Mirror of hotfix-snapshots Repository</name>
+      <url>http://132.148.160.61:40279/repository/maven-local-hotfix-snapshots/</url>
+      <mirrorOf>hotfix-snapshots</mirrorOf>
+            </mirror> 
+    -->
+    <mirror>
+      <id>local-mirror-public-snapshot</id>
+      <name>Local Mirror of public-snapshot Repository</name>
+      <url>http://132.148.160.61:40279/repository/maven-local-public-snapshot/</url>
+      <mirrorOf>public-snapshot</mirrorOf>
+    </mirror> 
+            <!-- 
+    <mirror>
+      <id>local-mirror-</id>
+      <name>Local Mirror of Repository</name>
+      <url></url>
+      <mirrorOf></mirrorOf>
+    </mirror>       
+    -->
+  </mirrors>
+</settings>

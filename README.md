@@ -74,7 +74,7 @@ Download from https://www.docker.com/products/docker-desktop
 1) Install Local Maven Repository 
 ```shell
 Create ~/.m2 if not exists
-Add settings.xml to ~/.m2
+Add git.config/settings.xml to ~/.m2
 ```
 
 2) Build Nuxeo Source on ./nuxeo directory

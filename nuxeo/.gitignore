@@ -33,3 +33,4 @@ nashorn_code_cache/
 bower_components
 node_modules
 .java-version
+/.project.ok

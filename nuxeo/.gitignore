@@ -34,3 +34,4 @@ bower_components
 node_modules
 .java-version
 /.project.ok
+/addons/nuxeo-api-playground/src/main/dart/.packages

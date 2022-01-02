@@ -80,7 +80,7 @@ Add git.config/settings.xml to ~/.m2
 2) Build Nuxeo Source on ./nuxeo directory
 ```shell
 cd nuxeo
-mvn install -Paddons,distrib -DskipTests
+    mvn install -Paddons,distrib -DskipTests
 ```
 3) Create Docker Image, wcl/nuxeo
 ```shell

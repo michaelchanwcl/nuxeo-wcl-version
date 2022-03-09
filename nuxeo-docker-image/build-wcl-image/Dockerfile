@@ -98,6 +98,8 @@ COPY --chown=1000:0 nuxeo-docker-image/build-wcl-image/lib/jackson-jaxrs-base-2.
 COPY --chown=1000:0 nuxeo-docker-image/build-wcl-image/lib/jackson-jaxrs-json-provider-2.9.10.jar $NUXEO_HOME/nxserver/lib
 COPY --chown=1000:0 nuxeo-docker-image/build-wcl-image/lib/jackson-module-jaxb-annotations-2.9.10.jar $NUXEO_HOME/nxserver/lib
 COPY --chown=1000:0 nuxeo-docker-image/build-wcl-image/lib/jutf7-1.0.0.jar $NUXEO_HOME/nxserver/bundles
+# WCL Custom Document Type
+COPY --chown=1000:0 nuxeo-docker-image/build-wcl-image/lib/wcl-custom-doctype-v1010.jar $NUXEO_HOME/nxserver/bundles
 
 #COPY --chown=1000:0 $NUXEO_HOME/nxserver/bundles
 #COPY --chown=1000:0 $NUXEO_HOME/nxserver/bundles

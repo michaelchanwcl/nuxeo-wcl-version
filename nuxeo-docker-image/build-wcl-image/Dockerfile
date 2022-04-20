@@ -101,6 +101,8 @@ COPY --chown=1000:0 nuxeo-docker-image/build-wcl-image/lib/jutf7-1.0.0.jar $NUXE
 # WCL Custom Document Type
 COPY --chown=1000:0 nuxeo-docker-image/build-wcl-image/lib/wcl-custom-doctype-v1010.jar $NUXEO_HOME/nxserver/bundles
 
+#COPY --chown=1000:0 nuxeo-docker-image/build-wcl-image/lib/docpal-security-keyword-policy-core-1.0-SNAPSHOT.jar $NUXEO_HOME/nxserver/lib
+
 #COPY --chown=1000:0 $NUXEO_HOME/nxserver/bundles
 #COPY --chown=1000:0 $NUXEO_HOME/nxserver/bundles
 

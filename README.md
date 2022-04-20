@@ -93,5 +93,5 @@ docker build -f nuxeo-docker-image/build-wcl-image/Dockerfile -t wcl/nuxeo .
 ```
 4) Run Nuxeo with docker compose
 ```shell
-docker-compose -f nuxeo-docker-image/run-docker/docker-compose.yml up -d
+docker compose -f nuxeo-docker-image/run-docker/docker-compose.yml up -d
 ```

@@ -9,6 +9,7 @@ services:
       - 5005:8787
     volumes:
       - ${PWD}/data:/var/lib/nuxeo/data
+      - ${PWD}/nuxeolog:/var/log/nuxeo
       - ${PWD}/mysql/nuxeo.defaults:/opt/nuxeo/server/templates/mysql/nuxeo.defaults
     environment:
       - NUXEO_DATA=/var/lib/nuxeo/data
@@ -20,6 +21,8 @@ services:
       - NUXEO_TEMPLATES=sdk,drive
       - NUXEO_URL=http://nuxeo.wclsolution.com/nuxeo
       - NUXEO_LOG=/var/log/nuxeo
+      - NUXEO_WORKFLOW_URL=http://docpal-workflow:8085
+      - NUXEO_FORCE_CONF=true
     networks:
       - wcl-network
     restart: always

@@ -99,7 +99,7 @@ COPY --chown=1000:0 nuxeo-docker-image/build-wcl-image/lib/jackson-jaxrs-json-pr
 COPY --chown=1000:0 nuxeo-docker-image/build-wcl-image/lib/jackson-module-jaxb-annotations-2.9.10.jar $NUXEO_HOME/nxserver/lib
 COPY --chown=1000:0 nuxeo-docker-image/build-wcl-image/lib/jutf7-1.0.0.jar $NUXEO_HOME/nxserver/bundles
 # WCL Custom Document Type
-COPY --chown=1000:0 nuxeo-docker-image/build-wcl-image/lib/wcl-custom-schema-doctype-v1010-master-SNAPSHOT.jar $NUXEO_HOME/nxserver/bundles
+
 # WCL Security Keyword Policy
 COPY --chown=1000:0 nuxeo-docker-image/build-wcl-image/lib/docpal-sam-master-SNAPSHOT.jar $NUXEO_HOME/nxserver/bundles
 COPY --chown=1000:0 nuxeo-docker-image/build-wcl-image/lib/docpal-security-keyword-policy-core-1.0-SNAPSHOT.jar $NUXEO_HOME/nxserver/bundles
